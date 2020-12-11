@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    protected Rigidbody2D rb;
     protected Animator anim;
 
     protected virtual void Start()
     {
         anim = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
@@ -19,6 +21,9 @@ public class Enemy : MonoBehaviour
     public void JumpedOn()
     {
         anim.SetTrigger("Death");
+        rb.velocity = Vector2.zero;
+        rb.bodyType = RigidbodyType2D.Kinematic;
+        GetComponent<Collider2D>().enabled = false;
     }
 
     private void Death()

@@ -12,7 +12,7 @@ public class Frog : Enemy
 
     [SerializeField] private LayerMask ground;
 
-    private Rigidbody2D rb;
+    
     private Collider2D coll;
     private bool facingLeft = true;
 
@@ -20,7 +20,6 @@ public class Frog : Enemy
     protected override void Start()
     {
         base.Start();
-        rb = GetComponent<Rigidbody2D>();
         coll = GetComponent<Collider2D>();
     }
 
